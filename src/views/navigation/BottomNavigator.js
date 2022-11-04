@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import IconFA5 from 'react-native-vector-icons/FontAwesome5';
 import HomeScreen from '../screens/HomeScreen';
 import COLORS from '../../consts/colors';
+import CartScreen from '../screens/CartScreen';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -32,8 +33,8 @@ const BottomTabs = () => {
       />
 
       <BottomTab.Screen
-        name="LocalMall"
-        component={HomeScreen}
+        name="Cart"
+        component={CartScreen}
         options={() => {
           return {
             tabBarLabel: ({focused}) => {},
