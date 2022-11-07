@@ -3,7 +3,7 @@ import {SafeAreaView, StyleSheet, View, Text, Image} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../../consts/colors';
-import foods from '../../consts/foods';
+import foods from '../../consts/froducts';
 import {PrimaryButton} from '../components/Button';
 
 const CartScreen = ({navigation}) => {

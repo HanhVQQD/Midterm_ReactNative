@@ -17,7 +17,7 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../../consts/colors';
 import categories from '../../consts/categories';
-import foods from '../../consts/foods';
+import froducts from '../../consts/froducts';
 const {width} = Dimensions.get('screen');
 const cardWidth = width / 2 - 20;
 const HomeScreen = ({navigation}) => {
@@ -27,7 +27,7 @@ const HomeScreen = ({navigation}) => {
     return (
       <ScrollView
         horizontal
-        showsHorizontalScrollIndicator={false}
+        showsHorizontalScrollIndicator={true}
         contentContainerStyle={styles.categoriesListContainer}>
         {categories.map((category, index) => (
           <TouchableOpacity
@@ -45,7 +45,7 @@ const HomeScreen = ({navigation}) => {
               <View style={styles.categoryBtnImgCon}>
                 <Image
                   source={category.image}
-                  style={{height: 35, width: 35, resizeMode: 'cover'}}
+                  style={{height: 35, width: 35, borderRadius: 35 , resizeMode: 'cover'}}
                 />
               </View>
               <Text
@@ -53,6 +53,7 @@ const HomeScreen = ({navigation}) => {
                   fontSize: 15,
                   fontWeight: 'bold',
                   marginLeft: 10,
+                  marginTop: 10,
                   color:
                     selectedCategoryIndex == index
                       ? COLORS.white
@@ -75,7 +76,7 @@ const HomeScreen = ({navigation}) => {
         onPress={() => navigation.navigate('DetailsScreen', food)}>
         <View style={styles.card}>
           <View style={{alignItems: 'center', top: -40}}>
-            <Image source={food.image} style={{height: 120, width: 120}} />
+            <Image source={food.image} style={{height: 120, width: 120, borderRadius: 120}} />
           </View>
           <View style={{marginHorizontal: 20}}>
             <Text style={{fontSize: 18, fontWeight: 'bold'}}>{food.name}</Text>
@@ -104,22 +105,15 @@ const HomeScreen = ({navigation}) => {
   return (
     <SafeAreaView style={styles.headers}>
       <View style={styles.header}>
-        <View>
-          <View style={{flexDirection: 'row'}}>
-            <Text style={{fontSize: 28}}>Hello, </Text>
-            <Text style={{fontSize: 28, fontWeight: 'bold', marginLeft: 10}}>
-              Hanh
-            </Text>
-          </View>
-          <Text style={styles.userWant}>What do you wnat today?</Text>
-        </View>
+        <Icon name="arrow-back" size={28} color={COLORS.dark} onPress={navigation.goBack}/>
+        <Text style={{fontSize: 20, fontWeight: 'bold'}}>Hello, My Hanh</Text>
         <Image
           style={styles.profileImage}
-          source={require('../../assets/person.png')}
+          source={require('../../assets/person.jpg')}
         />
       </View>
       <View
-        style={{marginTop: 40, flexDirection: 'row', paddingHorizontal: 20}}>
+        style={{marginTop: 10, flexDirection: 'row', paddingHorizontal: 20}}>
         <View style={styles.inputContainer}>
           <Icon name="search" size={28} />
           <TextInput
@@ -137,7 +131,7 @@ const HomeScreen = ({navigation}) => {
       <FlatList 
         showsVerticalScrollIndicator = {false} 
         numColumns={2}
-        data={foods}
+        data={froducts}
         renderItem ={({item}) => <Card food = {item} />}
       />
     </SafeAreaView>
@@ -156,6 +150,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     paddingHorizontal: 20,
   },
 
@@ -206,7 +201,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 
-  categoyBtnImgCon: {
+  categoryBtnImgCon: {
     height: 35,
     width: 35,
     backgroundColor: COLORS.white,
@@ -224,7 +219,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
     borderRadius: 15,
     elevation: 13,
-    backgroundColor: COLORS.white,
+    backgroundColor:'white',
   },
   addToCartBtn: {
     height: 30,

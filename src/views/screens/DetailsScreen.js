@@ -3,7 +3,7 @@ import {SafeAreaView, StyleSheet, View, Text, Image} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../../consts/colors';
-import {SecondaryButton} from '../components/Button';
+import {AddToCart} from '../components/Button';
 
 const DetailsScreen = ({navigation, route}) => {
   const item = route.params;
@@ -31,11 +31,11 @@ const DetailsScreen = ({navigation, route}) => {
               alignItems: 'center',
             }}>
             <Text
-              style={{fontSize: 25, fontWeight: 'bold', color: COLORS.white}}>
+              style={{fontSize: 25, fontWeight: 'bold', color: '#493E4C'}}>
               {item.name}
             </Text>
             <View style={styles.iconContainer}>
-              <Icon name="favorite-border" color={COLORS.primary} size={25} />
+              <Icon name="favorite-border" color='red' size={25} />
             </View>
           </View>
           <Text style={styles.detailsText}>
@@ -46,7 +46,7 @@ const DetailsScreen = ({navigation, route}) => {
             only five centuries.
           </Text>
           <View style={{marginTop: 40, marginBottom: 40}}>
-            <SecondaryButton title="Add To Cart" />
+            <AddToCart title="Add To Cart" />
           </View>
         </View>
       </ScrollView>
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 40,
     paddingBottom: 60,
-    backgroundColor: COLORS.primary,
+    backgroundColor: '#EFE0E1',
     borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
   },
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     lineHeight: 22,
     fontSize: 16,
-    color: COLORS.white,
+    color: '#493E4C'
   },
 });
 

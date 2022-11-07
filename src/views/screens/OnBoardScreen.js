@@ -1,32 +1,22 @@
 import React from 'react';
-import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {Image, SafeAreaView, StyleSheet, Text, View, ImageBackground} from 'react-native';
 import COLORS from '../../consts/colors';
 import { PrimaryButton } from '../components/Button';
 
 const OnBoardScreen = ({navigation}) => {
   return (
-    <SafeAreaView style={styles.containers}>
-      <View style={styles.container}>
-        <Image
-          style={styles.bigImage}
-          source={require('../../assets/onboardImage.png')}
-        />
-      </View>
+    <ImageBackground source={require('../../assets/background1.jpg')} style={styles.containers}>
       <View style={styles.textContainer}>
-        <View>
-          <Text style={styles.title}>Delicious Food</Text>
-          <Text style={styles.text}>
-            We help you to find best and delicious food
-          </Text>
+        <Text style={styles.title}> Flowers make your life more colorful</Text>
+        <View style={styles.line_arrows}>
+          <Image style={styles.line_arrow} source={require('../../assets/line1.png')}/>
         </View>
-        <View style={styles.indicatorContainer}>
-          <View style={styles.currentIndicator} />
-          <View style={styles.indicator} />
-          <View style={styles.indicator} />
-        </View>
-        <PrimaryButton onPress={() => navigation.navigate('Home')} title={"Get Started"}/>
       </View>
-    </SafeAreaView>
+      
+      <View style={styles.button}>
+        <PrimaryButton onPress={() => navigation.navigate('Home')} title={"Let's go"}/>
+      </View>
+    </ImageBackground>
   );
 };
 
@@ -35,60 +25,37 @@ export default OnBoardScreen;
 const styles = StyleSheet.create({
   containers: {
     flex: 1,
-    backgroundColor: COLORS.white,
+    opacity: 1
   },
-  container: {
-    height: 400,
-  },
+
 
   textContainer: {
     flex: 1,
-    paddingHorizontal: 50,
-    justifyContent: 'space-between',
     paddingBottom: 40,
   },
 
-  bigImage: {
-    width: '100%',
-    resizeMode: 'contain',
-    top: -150,
-  },
-
   title: {
-    fontSize: 32,
+    width: 300,
+    paddingTop: 60,
+    paddingLeft: 10,
+    fontSize: 40,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: 'black',
+    color: '#003300'
   },
 
-  text: {
-    marginTop: 20,
-    fontSize: 18,
-    textAlign: 'center',
-    color: COLORS.grey,
+  line_arrow: {
+    height: 80,
+    width: 80,
   },
 
-  indicatorContainer: {
-    height: 50,
-    flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
-    alignItems: 'center',
+  line_arrows: {
+    paddingLeft: 100,
+    paddingTop: 20,
   },
 
-  currentIndicator: {
-    height: 12,
-    width: 30,
-    borderRadius: 10,
-    backgroundColor: COLORS.primary,
-    marginHorizontal: 5,
-  },
-
-  indicator: {
-    height: 12,
-    width: 12,
-    borderRadius: 6,
-    backgroundColor: COLORS.grey,
-    marginHorizontal: 5,
-  },
+  button: {
+    paddingBottom: 50,
+    paddingLeft: 150,
+  }
 });
