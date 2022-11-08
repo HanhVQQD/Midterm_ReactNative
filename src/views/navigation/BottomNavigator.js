@@ -7,6 +7,7 @@ import IconFA5 from 'react-native-vector-icons/FontAwesome5';
 import HomeScreen from '../screens/HomeScreen';
 import COLORS from '../../consts/colors';
 import CartScreen from '../screens/CartScreen';
+import Map_view from '../screens/Map_view';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -62,7 +63,7 @@ const BottomTabs = () => {
 
       <BottomTab.Screen
         name="Map"
-        component={HomeScreen}
+        component={Map_view}
         options={() => {
           return {
             tabBarLabel: ({focused}) => {},
