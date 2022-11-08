@@ -4,7 +4,7 @@ import {FlatList} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../../consts/colors';
 import foods from '../../consts/froducts';
-import {PrimaryButton} from '../components/Button';
+import {AddToCart, PrimaryButton} from '../components/Button';
 
 const CartScreen = ({navigation}) => {
   const CartCard = ({item}) => {
@@ -59,8 +59,8 @@ const CartScreen = ({navigation}) => {
               </Text>
               <Text style={{fontSize: 18, fontWeight: 'bold'}}>$50</Text>
             </View>
-            <View style={{marginHorizontal: 30}}>
-              <PrimaryButton title="CHECKOUT" />
+            <View>
+              <AddToCart title="CHECKOUT" />
             </View>
           </View>
         )}

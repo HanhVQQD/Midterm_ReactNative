@@ -118,7 +118,7 @@ const HomeScreen = ({navigation}) => {
           <Icon name="search" size={28} />
           <TextInput
             style={{flex: 1, fontSize: 18}}
-            placeholder="Search for food"
+            placeholder="Search for flower"
           />
         </View>
         <View style={styles.sortBtn}>

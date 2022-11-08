@@ -7,6 +7,7 @@ import IconFA5 from 'react-native-vector-icons/FontAwesome5';
 import HomeScreen from '../screens/HomeScreen';
 import COLORS from '../../consts/colors';
 import CartScreen from '../screens/CartScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -33,13 +34,32 @@ const BottomTabs = () => {
       />
 
       <BottomTab.Screen
+        name="CartScreen"
+        component={CartScreen}
+        options={() => {
+          return {
+            tabBarLabel: ({focused}) => {},
+            tabBarIcon: ({focused}) => (
+              <Icon
+                style={{color: focused ? 'red' : 'black'}}
+                name="shopping-cart"
+                size={30}
+                color="black"
+              />
+            ),
+            headerShown: false,
+          };
+        }}
+      />
+
+      <BottomTab.Screen
         name="Cart"
         component={CartScreen}
         options={() => {
           return {
             tabBarLabel: ({focused}) => {},
             tabBarIcon: ({focused}) => (
-                <View
+              <View
                 style={{
                   height: 60,
                   width: 60,
@@ -52,8 +72,32 @@ const BottomTabs = () => {
                   top: -25,
                   elevation: 5,
                 }}>
-                <Icon style={{color: focused ? 'red' : 'black'}} name="search" color={COLORS.primary} size={28} />
+                <Icon
+                  style={{color: focused ? 'red' : 'black'}}
+                  name="search"
+                  color={COLORS.primary}
+                  size={25}
+                />
               </View>
+            ),
+            headerShown: false,
+          };
+        }}
+      />
+
+      <BottomTab.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={() => {
+          return {
+            tabBarLabel: ({focused}) => {},
+            tabBarIcon: ({focused}) => (
+              <IconFA5
+                style={{color: focused ? 'red' : 'black'}}
+                name="user-alt"
+                size={28}
+                color="black"
+              />
             ),
             headerShown: false,
           };
@@ -78,8 +122,6 @@ const BottomTabs = () => {
           };
         }}
       />
-
-      
     </BottomTab.Navigator>
   );
 };
