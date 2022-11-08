@@ -208,19 +208,21 @@ const Map_view = () =>
     return (
         <MapView
             provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+            zoomControlEnabled={true}
+            zoomEnabled={true}
             style={styles.map}
             customMapStyle={theme.dark ? mapDarkStyle : mapStandardStyle}
-            region={{
-                latitude: 16.0545,
-                longitude: 108.0717,
-                latitudeDelta: 0.015,
-                longitudeDelta: 0.0121,
+            initialRegion={{
+                latitude: 16.06009 ,
+                longitude: 108.24355,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421,
             }}
         >
             <Marker
                 coordinate={{
-                    latitude: 16.0545,
-                    longitude: 108.0717,
+                    latitude: 16.06009,
+                    longitude: 108.24355,
                 }}
                 // image={require('../assets/map_marker.png')}
                 title="Test Title"
@@ -229,12 +231,9 @@ const Map_view = () =>
                 <Callout tooltip>
                     <View>
                         <View style={styles.bubble}>
-                            <Text style={styles.name}>Tiệm hoa Tân Phú</Text>
-                            <Text>A short description</Text>
-                            <Image
-                                style={styles.image}
-                            source={require('../../assets/3.jpg')}
-                            />
+                            <Text style={styles.name}>Tiệm hoa Hannah</Text>
+                            <Text>“Giúp những ngày quan trọng được trọn vẹn – Biến những ngày bình thường trở nên đáng nhớ”</Text>
+                            
                         </View>
                         <View style={styles.arrowBorder} />
                         <View style={styles.arrow} />
@@ -243,8 +242,8 @@ const Map_view = () =>
             </Marker>
             <Marker
                 coordinate={{
-                    latitude: 16.0445,
-                    longitude: 108.0717,
+                    latitude: 16.0555,
+                    longitude: 108.24355,
                 }}
                 // image={require('../assets/map_marker.png')}
                 title="Test Title"
@@ -273,6 +272,7 @@ export default Map_view;
 
 const styles = StyleSheet.create({
     map: {
+        width: '100%',
         height: '100%'
     },
     // Callout bubble

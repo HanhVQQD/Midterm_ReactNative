@@ -8,9 +8,6 @@ const OnBoardScreen = ({navigation}) => {
     <ImageBackground source={require('../../assets/background1.jpg')} style={styles.containers}>
       <View style={styles.textContainer}>
         <Text style={styles.title}> Flowers make your life more colorful</Text>
-        <View style={styles.line_arrows}>
-          <Image style={styles.line_arrow} source={require('../../assets/line1.png')}/>
-        </View>
       </View>
       
       <View style={styles.button}>
