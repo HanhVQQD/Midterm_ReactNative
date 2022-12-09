@@ -1,254 +1,252 @@
+import {useTheme} from '@react-navigation/native';
 import React from 'react';
-import MapView, { PROVIDER_GOOGLE, Marker, Callout } from 'react-native-maps';
-import { View, Text, Image, StyleSheet } from 'react-native';
-import { useTheme } from '@react-navigation/native';
+import {Image, StyleSheet, Text, View} from 'react-native';
+import MapView, {Callout, Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 
 const mapDarkStyle = [
   {
-    "elementType": "geometry",
-    "stylers": [
+    elementType: 'geometry',
+    stylers: [
       {
-        "color": "#212121"
-      }
-    ]
+        color: '#212121',
+      },
+    ],
   },
   {
-    "elementType": "labels.icon",
-    "stylers": [
+    elementType: 'labels.icon',
+    stylers: [
       {
-        "visibility": "off"
-      }
-    ]
+        visibility: 'off',
+      },
+    ],
   },
   {
-    "elementType": "labels.text.fill",
-    "stylers": [
+    elementType: 'labels.text.fill',
+    stylers: [
       {
-        "color": "#757575"
-      }
-    ]
+        color: '#757575',
+      },
+    ],
   },
   {
-    "elementType": "labels.text.stroke",
-    "stylers": [
+    elementType: 'labels.text.stroke',
+    stylers: [
       {
-        "color": "#212121"
-      }
-    ]
+        color: '#212121',
+      },
+    ],
   },
   {
-    "featureType": "administrative",
-    "elementType": "geometry",
-    "stylers": [
+    featureType: 'administrative',
+    elementType: 'geometry',
+    stylers: [
       {
-        "color": "#757575"
-      }
-    ]
+        color: '#757575',
+      },
+    ],
   },
   {
-    "featureType": "administrative.country",
-    "elementType": "labels.text.fill",
-    "stylers": [
+    featureType: 'administrative.country',
+    elementType: 'labels.text.fill',
+    stylers: [
       {
-        "color": "#9e9e9e"
-      }
-    ]
+        color: '#9e9e9e',
+      },
+    ],
   },
   {
-    "featureType": "administrative.land_parcel",
-    "stylers": [
+    featureType: 'administrative.land_parcel',
+    stylers: [
       {
-        "visibility": "off"
-      }
-    ]
+        visibility: 'off',
+      },
+    ],
   },
   {
-    "featureType": "administrative.locality",
-    "elementType": "labels.text.fill",
-    "stylers": [
+    featureType: 'administrative.locality',
+    elementType: 'labels.text.fill',
+    stylers: [
       {
-        "color": "#bdbdbd"
-      }
-    ]
+        color: '#bdbdbd',
+      },
+    ],
   },
   {
-    "featureType": "poi",
-    "elementType": "labels.text.fill",
-    "stylers": [
+    featureType: 'poi',
+    elementType: 'labels.text.fill',
+    stylers: [
       {
-        "color": "#757575"
-      }
-    ]
+        color: '#757575',
+      },
+    ],
   },
   {
-    "featureType": "poi.park",
-    "elementType": "geometry",
-    "stylers": [
+    featureType: 'poi.park',
+    elementType: 'geometry',
+    stylers: [
       {
-        "color": "#181818"
-      }
-    ]
+        color: '#181818',
+      },
+    ],
   },
   {
-    "featureType": "poi.park",
-    "elementType": "labels.text.fill",
-    "stylers": [
+    featureType: 'poi.park',
+    elementType: 'labels.text.fill',
+    stylers: [
       {
-        "color": "#616161"
-      }
-    ]
+        color: '#616161',
+      },
+    ],
   },
   {
-    "featureType": "poi.park",
-    "elementType": "labels.text.stroke",
-    "stylers": [
+    featureType: 'poi.park',
+    elementType: 'labels.text.stroke',
+    stylers: [
       {
-        "color": "#1b1b1b"
-      }
-    ]
+        color: '#1b1b1b',
+      },
+    ],
   },
   {
-    "featureType": "road",
-    "elementType": "geometry.fill",
-    "stylers": [
+    featureType: 'road',
+    elementType: 'geometry.fill',
+    stylers: [
       {
-        "color": "#2c2c2c"
-      }
-    ]
+        color: '#2c2c2c',
+      },
+    ],
   },
   {
-    "featureType": "road",
-    "elementType": "labels.text.fill",
-    "stylers": [
+    featureType: 'road',
+    elementType: 'labels.text.fill',
+    stylers: [
       {
-        "color": "#8a8a8a"
-      }
-    ]
+        color: '#8a8a8a',
+      },
+    ],
   },
   {
-    "featureType": "road.arterial",
-    "elementType": "geometry",
-    "stylers": [
+    featureType: 'road.arterial',
+    elementType: 'geometry',
+    stylers: [
       {
-        "color": "#373737"
-      }
-    ]
+        color: '#373737',
+      },
+    ],
   },
   {
-    "featureType": "road.highway",
-    "elementType": "geometry",
-    "stylers": [
+    featureType: 'road.highway',
+    elementType: 'geometry',
+    stylers: [
       {
-        "color": "#3c3c3c"
-      }
-    ]
+        color: '#3c3c3c',
+      },
+    ],
   },
   {
-    "featureType": "road.highway.controlled_access",
-    "elementType": "geometry",
-    "stylers": [
+    featureType: 'road.highway.controlled_access',
+    elementType: 'geometry',
+    stylers: [
       {
-        "color": "#4e4e4e"
-      }
-    ]
+        color: '#4e4e4e',
+      },
+    ],
   },
   {
-    "featureType": "road.local",
-    "elementType": "labels.text.fill",
-    "stylers": [
+    featureType: 'road.local',
+    elementType: 'labels.text.fill',
+    stylers: [
       {
-        "color": "#616161"
-      }
-    ]
+        color: '#616161',
+      },
+    ],
   },
   {
-    "featureType": "transit",
-    "elementType": "labels.text.fill",
-    "stylers": [
+    featureType: 'transit',
+    elementType: 'labels.text.fill',
+    stylers: [
       {
-        "color": "#757575"
-      }
-    ]
+        color: '#757575',
+      },
+    ],
   },
   {
-    "featureType": "water",
-    "elementType": "geometry",
-    "stylers": [
+    featureType: 'water',
+    elementType: 'geometry',
+    stylers: [
       {
-        "color": "#000000"
-      }
-    ]
+        color: '#000000',
+      },
+    ],
   },
   {
-    "featureType": "water",
-    "elementType": "labels.text.fill",
-    "stylers": [
+    featureType: 'water',
+    elementType: 'labels.text.fill',
+    stylers: [
       {
-        "color": "#3d3d3d"
-      }
-    ]
-  }
+        color: '#3d3d3d',
+      },
+    ],
+  },
 ];
 
 const mapStandardStyle = [
   {
-    "elementType": "labels.icon",
-    "stylers": [
+    elementType: 'labels.icon',
+    stylers: [
       {
-        "visibility": "off"
-      }
-    ]
+        visibility: 'off',
+      },
+    ],
   },
 ];
 
 const Map_view = () => {
   const theme = useTheme();
 
-    return (
-        <MapView
-          provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-          style={styles.map}
-          customMapStyle={ theme.dark ? mapDarkStyle : mapStandardStyle}
-          region={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.015,
-            longitudeDelta: 0.0121,
-          }}
-        >
-          <Marker 
-            coordinate={{
-              latitude: 37.78825,
-              longitude: -122.4324,
-            }}
-            // image={require('../assets/map_marker.png')}
-            title="Test Title"
-            description="This is the test description"
-          >
-            <Callout tooltip>
-              <View>
-                <View style={styles.bubble}>
-                  <Text style={styles.name}>Favourite Restaurant</Text>
-                  {/* <Text>A short description</Text> */}
-                  <Image 
-                    style={styles.image}
-                    // source={require('../assets/banners/food-banner1.jpg')}
-                  />
-                </View>
-                <View style={styles.arrowBorder} />
-                <View style={styles.arrow} />
-              </View>
-            </Callout>
-          </Marker>
-        </MapView>
-    );
+  return (
+    <MapView
+      provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+      style={styles.map}
+      customMapStyle={theme.dark ? mapDarkStyle : mapStandardStyle}
+      region={{
+        latitude: 37.78825,
+        longitude: -122.4324,
+        latitudeDelta: 0.015,
+        longitudeDelta: 0.0121,
+      }}>
+      <Marker
+        coordinate={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+        }}
+        // image={require('../assets/map_marker.png')}
+        title="Test Title"
+        description="This is the test description">
+        <Callout tooltip>
+          <View>
+            <View style={styles.bubble}>
+              <Text style={styles.name}>Favourite Restaurant</Text>
+              {/* <Text>A short description</Text> */}
+              <Image
+                style={styles.image}
+                // source={require('../assets/banners/food-banner1.jpg')}
+              />
+            </View>
+            <View style={styles.arrowBorder} />
+            <View style={styles.arrow} />
+          </View>
+        </Callout>
+      </Marker>
+    </MapView>
+  );
 };
 
 export default Map_view;
 
 const styles = StyleSheet.create({
   map: {
-    height: '100%'
+    height: '100%',
   },
   // Callout bubble
   bubble: {
@@ -286,7 +284,7 @@ const styles = StyleSheet.create({
   },
   // Character image
   image: {
-    width: "100%",
+    width: '100%',
     height: 80,
   },
 });
