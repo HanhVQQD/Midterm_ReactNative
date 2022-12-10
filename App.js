@@ -6,6 +6,7 @@ import 'react-native-gesture-handler';
 import COLORS from './src/consts/colors';
 import BottomNavigator from './src/views/navigation/BottomNavigator';
 import DetailsScreen from './src/views/screens/DetailsScreen';
+import Map_view from './src/views/screens/Map_View';
 import OnBoardScreen from './src/views/screens/OnBoardScreen';
 
 const Stack = createStackNavigator();
@@ -18,6 +19,7 @@ const App = () => {
         <Stack.Screen name="BoardScreen" component={OnBoardScreen} />
         <Stack.Screen name="Home" component={BottomNavigator} />
         <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
+        <Stack.Screen name="GGmap" component={Map_view} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useEffect, useState} from 'react';
 import {
   Dimensions,
   Image,
@@ -15,13 +16,50 @@ import {
   TouchableOpacity,
 } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import categories from '../../consts/categories';
 import COLORS from '../../consts/colors';
-import foods from '../../consts/foods';
 const {width} = Dimensions.get('screen');
 const cardWidth = width / 2 - 20;
 const HomeScreen = ({navigation}) => {
   const [selectedCategoryIndex, setSelectedCategoryIndex] = React.useState(0);
+
+  // const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // setLoading(true);
+      try {
+        const {data: response} = await axios.get(
+          'https://63466a7d9eb7f8c0f87b0187.mockapi.io/categories',
+        );
+        setCategories(response);
+      } catch (error) {
+        console.error(error.message);
+      }
+      // setLoading(false);
+    };
+
+    fetchData();
+  }, []);
+
+  const [foods, setFoods] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // setLoading(true);
+      try {
+        const {data: response} = await axios.get(
+          'https://63466a7d9eb7f8c0f87b0187.mockapi.io/newFoods',
+        );
+        setFoods(response);
+      } catch (error) {
+        console.error(error.message);
+      }
+      // setLoading(false);
+    };
+
+    fetchData();
+  }, []);
 
   const ListCategories = () => {
     return (
@@ -44,8 +82,14 @@ const HomeScreen = ({navigation}) => {
               }}>
               <View style={styles.categoryBtnImgCon}>
                 <Image
-                  source={category.image}
-                  style={{height: 35, width: 35, resizeMode: 'cover'}}
+                  source={{uri: `${category.image}`}}
+                  style={{
+                    height: 35,
+                    width: 35,
+                    resizeMode: 'cover',
+                    borderRadius: 30,
+                    marginTop: 5,
+                  }}
                 />
               </View>
               <Text
@@ -53,6 +97,7 @@ const HomeScreen = ({navigation}) => {
                   fontSize: 15,
                   fontWeight: 'bold',
                   marginLeft: 10,
+                  marginTop: 10,
                   color:
                     selectedCategoryIndex == index
                       ? COLORS.white
@@ -75,7 +120,10 @@ const HomeScreen = ({navigation}) => {
         onPress={() => navigation.navigate('DetailsScreen', food)}>
         <View style={styles.card}>
           <View style={{alignItems: 'center', top: -40}}>
-            <Image source={food.image} style={{height: 120, width: 120}} />
+            <Image
+              source={{uri: `${food.image}`}}
+              style={{height: 120, width: 120, borderRadius: 40}}
+            />
           </View>
           <View style={{marginHorizontal: 20}}>
             <Text style={{fontSize: 18, fontWeight: 'bold'}}>{food.name}</Text>
