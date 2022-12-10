@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import COLORS from '../../consts/colors';
-import { PrimaryButton } from '../components/Button';
+import {PrimaryButton} from '../components/Button';
 
 const OnBoardScreen = ({navigation}) => {
   return (
@@ -24,7 +24,10 @@ const OnBoardScreen = ({navigation}) => {
           <View style={styles.indicator} />
           <View style={styles.indicator} />
         </View>
-        <PrimaryButton onPress={() => navigation.navigate('Home')} title={"Get Started"}/>
+        <PrimaryButton
+          onPress={() => navigation.navigate('Home')}
+          title={'Get Started'}
+        />
       </View>
     </SafeAreaView>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, View, Text, Image} from 'react-native';
+import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../../consts/colors';
@@ -21,7 +21,10 @@ const DetailsScreen = ({navigation, route}) => {
             alignItems: 'center',
             height: 280,
           }}>
-          <Image source={item.image} style={{height: 220, width: 220}} />
+          <Image
+            source={{uri: `${item.image}`}}
+            style={{height: 220, width: 220}}
+          />
         </View>
         <View style={styles.details}>
           <View
