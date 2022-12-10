@@ -3,7 +3,7 @@ import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../../consts/colors';
-import {SecondaryButton} from '../components/Button';
+import {PrimaryButton, SecondaryButton} from '../components/Button';
 
 const DetailsScreen = ({navigation, route}) => {
   const item = route.params;
@@ -43,9 +43,9 @@ const DetailsScreen = ({navigation, route}) => {
           </View>
           <Text style={styles.detailsText}>{item.description}</Text>
           <View>
-            <Text
+            <PrimaryButton
               onPress={() => navigation.navigate('GGmap')}
-              title={'View on google map'}></Text>
+              title={'View on google map'}></PrimaryButton>
           </View>
           <View style={{marginTop: 40, marginBottom: 40}}>
             <SecondaryButton title="Add To Cart" />
