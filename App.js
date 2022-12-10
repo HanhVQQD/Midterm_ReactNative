@@ -1,12 +1,12 @@
-import 'react-native-gesture-handler';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import {StatusBar} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack'
+import 'react-native-gesture-handler';
 import COLORS from './src/consts/colors';
-import OnBoardScreen from './src/views/screens/OnBoardScreen';
-import DetailsScreen from './src/views/screens/DetailsScreen';
 import BottomNavigator from './src/views/navigation/BottomNavigator';
+import DetailsScreen from './src/views/screens/DetailsScreen';
+import OnBoardScreen from './src/views/screens/OnBoardScreen';
 
 const Stack = createStackNavigator();
 

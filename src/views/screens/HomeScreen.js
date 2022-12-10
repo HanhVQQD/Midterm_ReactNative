@@ -15,8 +15,8 @@ import {
   TouchableOpacity,
 } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import COLORS from '../../consts/colors';
 import categories from '../../consts/categories';
+import COLORS from '../../consts/colors';
 import foods from '../../consts/foods';
 const {width} = Dimensions.get('screen');
 const cardWidth = width / 2 - 20;
@@ -134,11 +134,11 @@ const HomeScreen = ({navigation}) => {
       <View>
         <ListCategories />
       </View>
-      <FlatList 
-        showsVerticalScrollIndicator = {false} 
+      <FlatList
+        showsVerticalScrollIndicator={false}
         numColumns={2}
         data={foods}
-        renderItem ={({item}) => <Card food = {item} />}
+        renderItem={({item}) => <Card food={item} />}
       />
     </SafeAreaView>
   );

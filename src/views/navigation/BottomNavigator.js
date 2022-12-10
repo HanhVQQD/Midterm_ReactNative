@@ -1,12 +1,12 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import React from 'react';
+import {StyleSheet, View} from 'react-native';
 
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import IconFA5 from 'react-native-vector-icons/FontAwesome5';
-import HomeScreen from '../screens/HomeScreen';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../../consts/colors';
 import CartScreen from '../screens/CartScreen';
+import HomeScreen from '../screens/HomeScreen';
 import Map_view from '../screens/Map_View';
 
 const BottomTab = createBottomTabNavigator();
@@ -40,7 +40,7 @@ const BottomTabs = () => {
           return {
             tabBarLabel: ({focused}) => {},
             tabBarIcon: ({focused}) => (
-                <View
+              <View
                 style={{
                   height: 60,
                   width: 60,
@@ -53,7 +53,12 @@ const BottomTabs = () => {
                   top: -25,
                   elevation: 5,
                 }}>
-                <Icon style={{color: focused ? 'red' : 'black'}} name="search" color={COLORS.primary} size={28} />
+                <Icon
+                  style={{color: focused ? 'red' : 'black'}}
+                  name="search"
+                  color={COLORS.primary}
+                  size={28}
+                />
               </View>
             ),
             headerShown: false,
@@ -79,8 +84,6 @@ const BottomTabs = () => {
           };
         }}
       />
-
-      
     </BottomTab.Navigator>
   );
 };
