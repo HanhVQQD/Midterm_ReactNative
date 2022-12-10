@@ -49,7 +49,7 @@ const HomeScreen = ({navigation}) => {
       // setLoading(true);
       try {
         const {data: response} = await axios.get(
-          'https://63466a7d9eb7f8c0f87b0187.mockapi.io/foods',
+          'https://63466a7d9eb7f8c0f87b0187.mockapi.io/newFoods',
         );
         setFoods(response);
       } catch (error) {

@@ -3,7 +3,7 @@ import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../../consts/colors';
-import {SecondaryButton} from '../components/Button';
+import {PrimaryButton, SecondaryButton} from '../components/Button';
 
 const DetailsScreen = ({navigation, route}) => {
   const item = route.params;
@@ -41,13 +41,12 @@ const DetailsScreen = ({navigation, route}) => {
               <Icon name="favorite-border" color={COLORS.primary} size={25} />
             </View>
           </View>
-          <Text style={styles.detailsText}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries.
-          </Text>
+          <Text style={styles.detailsText}>{item.description}</Text>
+          <View>
+            <PrimaryButton
+              onPress={() => navigation.navigate('GGmap')}
+              title={'View on google map'}></PrimaryButton>
+          </View>
           <View style={{marginTop: 40, marginBottom: 40}}>
             <SecondaryButton title="Add To Cart" />
           </View>
